@@ -83,3 +83,37 @@ align-items: center;
     transform: translateY(-0.1rem);
     transition: transform 350ms;
 }
+.btnn{
+    font-size: 2.1rem;
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+    border: 0.1rem solid rgb(57, 57, 57);
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: rgb(26, 177, 162);
+    background-color: whitesmoke; 
+}
+.btnn:hover{
+    background-color: rgb(152, 133, 229);
+    color: aliceblue;
+    cursor:pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(40, 39, 39);
+    transform: translateY(-0.1rem);
+    transition: transform 350ms;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    color: rgb(152, 133, 229);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    width:20rem;
+    padding: 1.5rem;
+    border:none;
+}
