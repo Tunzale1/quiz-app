@@ -9,39 +9,43 @@ let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
-let questions = [
-    {
-        question: "Menim en sevdiyim reng hansidir?",
-        choice1:"qirmizi",
-        choice2:"yasil",
-        choice3: "benovseyi",
-        choice4: "men ne bilim pervin",
-        answer:3
 
-    },
-    {
-        question: "Sevgili tapacam bu il?",
-        choice1:"insAllah gelen ay",
-        choice2:"100%",
-        choice3: "1 qr subhen olmasin",
-        choice4: "niye de yox, hetta ozu seni tapacaq",
-        answer: 4
 
-    },
-    {
-        question: "ordekler gedir yol ile....",
-        choice1:"cibi dolu pul ile",
-        choice2:"nolar cixaq gedey tay",
-        choice3: "uzulur uregime",
-        choice4: "sahura 1 saat qalib",
-        answer: 4
 
-    },
-];
+let questions = [];
 
-//CONSTANTS
+fetch(
+    'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
+)
+    .then((res) => {
+        return res.json();
+    })
+    .then((loadedQuestions) => {
+        questions = loadedQuestions.results.map((loadedQuestion) => {
+            const formattedQuestion = {
+                question: loadedQuestion.question,
+            };
+
+            const answerChoices = [...loadedQuestion.incorrect_answers];
+            formattedQuestion.answer = Math.floor(Math.random() * 4) + 1;
+            answerChoices.splice(
+                formattedQuestion.answer - 1,
+                0,
+                loadedQuestion.correct_answer
+            );
+
+            answerChoices.forEach((choice, index) => {
+                formattedQuestion['choice' + (index + 1)] = choice;
+            });
+
+            return formattedQuestion;
+        });
+
+        startGame();
+    })
+
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 10;
 
 startGame = () => {
     questionCounter = 0;
@@ -112,4 +116,3 @@ decrementScore = num => {
     scoreText.innerText= score
 }  
 
-startGame();

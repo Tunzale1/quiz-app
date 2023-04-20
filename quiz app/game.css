@@ -1,28 +1,27 @@
 .choice-container{
 display: flex;
 margin-bottom: 1.5rem;
-width:90%;
-margin-left: 1%;
+width:100%;
+margin-left: 5%;
+margin-right: 5%;
 font-size:1.8rem;
 border: 0.1rem solid blueviolet;
 background-color: rgb(253, 253, 253);
-line-height: 100%;
+
 }
-#question{
-    margin-left: 1%;
-    font-size: 400%;
-    margin-right: 1%;
-}
+
 .choice-container:hover{
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgb(2, 5, 4);
 
 }
 .choice-prefix{
+
     padding: 1.5rem 2.5rem ;
     background-color: rgb(113, 67, 187);
 }
 .choice-text{
+    
     padding: 1.5rem;
     color: black;
 }
